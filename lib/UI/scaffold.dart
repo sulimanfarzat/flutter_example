@@ -72,7 +72,6 @@ class _ScaffoldBasicsState extends State<ScaffoldBasics> {
                     // TODO: Clear the text fields (101)
                   },
                 ),
-                // TODO: Add an elevation to NEXT (103)
                 // TODO: Add a beveled rectangular border to NEXT (103)
                 RaisedButton(
                   child: Text('NEXT'),
