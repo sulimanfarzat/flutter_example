@@ -1,9 +1,21 @@
 import 'package:flutter/material.dart';
 
-class ScaffoldBasics extends StatelessWidget {
+
+class ScaffoldBasics extends StatefulWidget {
+  @override
+  _ScaffoldBasicsState createState() => _ScaffoldBasicsState();
+}
+
+
+class _ScaffoldBasicsState extends State<ScaffoldBasics> {
+
+  final usernamecontroller = new TextEditingController();
+  var userName ="Kasem";
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
+
 
       endDrawer: new Drawer(child: new ListView(children: <Widget>[
         new DrawerHeader(
@@ -38,15 +50,57 @@ class ScaffoldBasics extends StatelessWidget {
             icon: new Icon(Icons.face), child: new Text("for my flutter corse"))
       ],),),
 
-      backgroundColor: Colors.greenAccent,
+
+      backgroundColor: Colors.tealAccent,
+
 
       appBar: new AppBar(
         title: new Text("Scaffold demo"),
       ),
 
+
       body: new SingleChildScrollView(
         child: new Column(
           children: <Widget>[
+            ButtonBar(
+              // TODO: Add a beveled rectangular border to CANCEL (103)
+              children: <Widget>[
+                // TODO: Add buttons (101)
+                FlatButton(
+                  child: Text('CANCEL'),
+                  onPressed: () {
+                    // TODO: Clear the text fields (101)
+                  },
+                ),
+                // TODO: Add an elevation to NEXT (103)
+                // TODO: Add a beveled rectangular border to NEXT (103)
+                RaisedButton(
+                  child: Text('NEXT'),
+                  onPressed: () {
+                    // TODO: Show the next page (101)
+                  },
+                ),
+              ],
+            ),
+
+            new TextField(controller: usernamecontroller, onSubmitted: (txt){
+              setState(() {
+                userName = usernamecontroller.text;
+              });
+            },
+            onChanged: (txt){
+              setState(() {
+                userName = usernamecontroller.text;
+              });
+            },),
+            new InkWell(child: new Icon(Icons.edit), onTap: (){
+              setState((){
+                userName = usernamecontroller.text;
+              });
+            },),
+            new Text("Hello ${userName}"),
+            new Padding(padding: EdgeInsets.all(33.0)),
+
             new Card(child: new Container(height: 150.0, child: new TextField(controller: new TextEditingController(),),),),
             new Card(child: new Container(height: 150.0,),),
             new Card(child: new Container(height: 150.0,),),
@@ -56,7 +110,9 @@ class ScaffoldBasics extends StatelessWidget {
         ),
       ),
 
+
       floatingActionButton: new FloatingActionButton(onPressed: null),
+
 
       bottomNavigationBar: new BottomNavigationBar(items: <BottomNavigationBarItem>[
         new BottomNavigationBarItem(icon: new Icon(Icons.refresh),title: new Text("test")),
@@ -64,11 +120,13 @@ class ScaffoldBasics extends StatelessWidget {
         new BottomNavigationBarItem(icon: new Icon(Icons.refresh),title: new Text("test")),
       ]),
 
+
       persistentFooterButtons: <Widget>[
         new FlatButton(onPressed: null, child: new Text("one")),
         new FlatButton(onPressed: null, child: new Text("tow-")),
         new FlatButton(onPressed: null, child: new Text("three")),
       ],
+
 
     );
   }
