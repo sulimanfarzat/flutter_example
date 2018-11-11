@@ -27,8 +27,8 @@ class ScaffoldBasics extends StatelessWidget {
       ]),
       persistentFooterButtons: <Widget>[
         new FlatButton(onPressed: null, child: new Text("one")),
-        new FlatButton(onPressed: null, child: new Text("one")),
-        new FlatButton(onPressed: null, child: new Text("one")),
+        new FlatButton(onPressed: null, child: new Text("tow-")),
+        new FlatButton(onPressed: null, child: new Text("three")),
       ],
 
     );
